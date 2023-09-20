@@ -1,19 +1,18 @@
-import { StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import React from 'react';
 import Svg, {Path, Text as TextSVG, G} from 'react-native-svg';
-import { SlicesDataInterface } from '../../type';
+import {SlicesDataInterface} from '../../type';
 
 const getXY = (percent: number, radius: number) => {
   const x = Math.cos((2 * Math.PI * percent) / 100) * radius;
   const y = Math.sin((2 * Math.PI * percent) / 100) * radius;
   return {x, y};
 };
-interface PiechartProps{
-  data: Array<SlicesDataInterface>
+interface PiechartProps {
+  data: Array<SlicesDataInterface>;
 }
 
-
-const PieChart:React.FC<PiechartProps> = ({data}) => {
+const PieChart: React.FC<PiechartProps> = ({data}) => {
   const radius = 80;
   let tempPercent = 0;
   let tempTextPercent = 0;
@@ -59,6 +58,7 @@ const PieChart:React.FC<PiechartProps> = ({data}) => {
             transform={`rotate(90 ${v.textPos.x},${v.textPos.y})`}>
             {v.percent}%
           </TextSVG>
+        
         </G>
       ))}
     </Svg>

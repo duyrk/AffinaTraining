@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useCallback} from 'react';
 import {colors, font, fontFamily, normalize} from '../../../themes';
 import FastImage from 'react-native-fast-image';
@@ -15,12 +15,8 @@ const MusicItem: React.FC<MusicItemProps> = ({id, title, artist, image}) => {
   return (
     <Pressable style={styles.container} onPress={handleClickOnItem}>
       <View style={styles.itemLeft}>
-        <View
-          style={styles.infoContainer}>
-          <Text
-            style={styles.musicNumber}>
-            {id}
-          </Text>
+        <View style={styles.infoContainer}>
+          <Text style={styles.musicNumber}>{id}</Text>
           <View style={{height: 1, backgroundColor: '#FFF', width: '100%'}} />
         </View>
         <View>
@@ -35,8 +31,7 @@ const MusicItem: React.FC<MusicItemProps> = ({id, title, artist, image}) => {
             }}
           />
         </View>
-        <View
-          style={styles.itemRight}>
+        <View style={styles.itemRight}>
           <Text style={styles.titleText}>{title}</Text>
           <Text style={styles.artistText}>{artist}</Text>
         </View>
@@ -73,8 +68,8 @@ const styles = StyleSheet.create({
     color: colors.dark.primaryText,
     fontWeight: '500',
   },
-  itemLeft:{flexDirection: 'row', alignItems: 'center'},
-  infoContainer:{
+  itemLeft: {flexDirection: 'row', alignItems: 'center'},
+  infoContainer: {
     width: normalize.h(40),
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -87,10 +82,10 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.regular,
     fontSize: font.size.h2,
   },
-  itemRight:{
+  itemRight: {
     flexDirection: 'column',
     justifyContent: 'space-between',
     marginStart: 10,
     paddingVertical: 8,
-  }
+  },
 });

@@ -43,8 +43,7 @@ const CategoryComponent: React.FC<CategoryComponentProps> = ({data}) => {
   }, [categories]);
 
   return (
-    <View
-      style={styles.container}>
+    <View style={styles.container}>
       {data.map(item => (
         <CategoryItem
           key={item.id}
@@ -59,7 +58,7 @@ const CategoryComponent: React.FC<CategoryComponentProps> = ({data}) => {
 export default CategoryComponent;
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     padding: 10,

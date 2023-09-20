@@ -1,5 +1,5 @@
 import {Dimensions, ScrollView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, { useRef } from 'react';
 import {colors, font, fontFamily, normalize} from '../../themes';
 import FastImage from 'react-native-fast-image';
 import MusicItem from './components/MusicItem';
@@ -7,6 +7,8 @@ import ArtistItem from './components/ArtistItem';
 import CategoryComponent from './components/CategoryComponent';
 import ColumnChart from './components/ColumnChart';
 import PieChart from './components/PieChart';
+import MovableItem from './components/MovableItem';
+
 const data = [
   {label: 'Mon', x: 0, y: 0},
   {label: 'Tues', x: 1, y: 4},
@@ -121,10 +123,12 @@ const pieSlicesData = [
 ];
 type Props = {};
 const {width} = Dimensions.get('screen');
+const ITEM_HEIGHT = normalize.h(60);
 
+const positions = useRef()
 export const TrainingScreen = (props: Props) => {
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false} >
       <View style={styles.toolbar}>
         <View style={styles.iconBackContainer}>
           <FastImage
@@ -206,6 +210,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.dark.backgroundColor,
+    position:'relative',
   },
   toolbar: {
     backgroundColor: colors.dark.toolbar,

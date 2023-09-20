@@ -9,6 +9,7 @@ import {
   Text,
   LinearGradient,
   Stop,
+  Line,
 } from 'react-native-svg';
 import {colors} from '../../../themes';
 
@@ -20,8 +21,7 @@ type Props = {
   horizontalGuides: number;
 };
 const ColumnChart = React.memo((props: Props) => {
-  const {data, width, height, precision, horizontalGuides} =
-    props;
+  const {data, width, height, precision, horizontalGuides} = props;
   const FONT_SIZE = 12;
   const maximumXFromData = Math.max(...data.map(e => e.x));
   const maximumYFromData = Math.max(...data.map(e => e.y));
